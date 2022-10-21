@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% block content %} <br>
+<div class="p-3 mb-2 bg-success text-white">
+    <h1><center>ELIMINAR NOTICIA </center></h1>
+</div><br />
+<div>
+<div class="alert alert-success d-flex align-items-center" role="alert">
+    <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill"/></svg>
+    <div>
+        <form action="" method="post" >{% csrf_token %}
+            {{ form.as_p }}
+            <br>
+            <label for="Nombre "> ¿Seguro que desea eliminarlo? </label>
+            <br>
+             <input class="btn btn-success btn-xs" type="submit" value="Eliminar" />
+            
+         </form>
+    </div>
+  </div>
+
+  
+ {% endblock content %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}{% load crispy_forms_tags%}{% block content %}
+<div class="p-3 mb-2 bg-success text-white">
+    <h1><center>NOTICIAS DETALLES</center></h1>
+</div><br>
+<div class="card text-center">
+  <div class="card-header">
+    <h5 class="card-title">{{Todas_Noticias.Titulo}}</h5>
+  </div>
+  <div class="card-body">
+    
+    <p class="card-text">{{Todas_Noticias.Descripcion}}</p>
+    <footer class="blockquote-footer">Autor: <cite title="Source Title">{{Todas_Noticias.Autor}}</cite></footer>
+    <br>
+    <div class="accordion" id="accordionExample">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+            Comentarios
+          </button>
+        </h2>
+        <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+          <div class="accordion-body">        
+            {% for comentario in Todas_Noticias.comentarios.all %}
+              <li class="list-group-item">{{comentario.autor}} comento: <p>{{comentario}}</p></li>
+            {% endfor%}
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="d-grid gap-2 d-md-block">
+      <a href="{% url 'comentarios' Todas_Noticias.pk  %}" class="btn btn-success btn-xs"> Comentario </a>
+      <a href="{% url 'noticias_editar' Todas_Noticias.pk %}" class="btn btn-success btn-xs"> Editar </a>
+      <a href="{% url 'noticias_eliminar' Todas_Noticias.pk %}" class="btn btn-success btn-xs"> Eliminar </a>
+    </div>
+    <br>
+    <a class="btn btn-outline-success btn-xs justify-content-md-end" href="{% url 'noticias' %}"> Ver Todas Las Noticias </a>
+  </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% load crispy_forms_tags%}{% block content %}
+<div class="p-3 mb-2 bg-success text-white">
+    <h1>
+        <center> CREAR COMENTARIO </center>
+    </h1>
+</div>
+<form action="" method="post" >{% csrf_token %}
+    
+<div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label"></label>
+    <textarea class="form-control" id="comentario" name="comentario" rows="3"></textarea>
+
+  </div>
+  <input class="btn btn-success btn-xs" type="submit" value="Guardar"/>
+
+</div>
+
+</form>
+<!--<form action="" method="post" >{% csrf_token %}
+    {{form|crispy}}
+   
+   <div class="row g-3 align-items-center">
+        <div class="col-auto">
+            <label for="comentarios "> Comentarios </label>
+        </div>
+        <div class="col-auto">
+            <input type="text" name="comentario">
+        </div>
+    </div>
+   <br>
+    <input class="btn btn-success btn-xs" type="submit" value="Guardar"/>
+
+
+-->
+{% endblock content %}
